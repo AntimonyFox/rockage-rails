@@ -4,19 +4,19 @@
     <data-source source="LOCAL" name="Rails Rockage: development" uuid="8ea72636-33fd-4b20-8a48-ec4e6e96e601">
       <driver-ref>postgresql</driver-ref>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql://127.0.0.1/database_development</jdbc-url>
+      <jdbc-url>jdbc:postgresql:database_development</jdbc-url>
       <libraries />
     </data-source>
     <data-source source="LOCAL" name="Rails Rockage: test" uuid="94992800-9879-47a7-9e78-cbc6adf6bad3">
       <driver-ref>postgresql</driver-ref>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql://127.0.0.1/database_test</jdbc-url>
+      <jdbc-url>jdbc:postgresql:database_test</jdbc-url>
       <libraries />
     </data-source>
     <data-source source="LOCAL" name="Rails Rockage: production" uuid="7c1173f1-0aeb-4379-a63a-d07284d24299">
       <driver-ref>postgresql</driver-ref>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql://127.0.0.1/database_production</jdbc-url>
+      <jdbc-url>jdbc:postgresql:database_production</jdbc-url>
       <libraries />
     </data-source>
   </component>
