@@ -1,31 +1,27 @@
 ActiveAdmin.register Event do
-  permit_params :name, :when, :stage, :logo_url
-
-  # See permitted parameters documentation:
-  # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
-  #
-  # permit_params :list, :of, :attributes, :on, :model
-  #
-  # or
-  #
-  # permit_params do
-  #   permitted = [:permitted, :attributes]
-  #   permitted << :other if resource.something?
-  #   permitted
-  # end
+  permit_params :name, :when, :stage_id, :logo_url
+  menu priority: 4
 
   index do
     selectable_column
-    id_column
     column :name
-    column :when
     column :stage
+    column :when
     actions
   end
 
   filter :name
-  filter :when
   filter :stage
+  filter :when
 
+  form do |f|
+    f.inputs "Event Details" do
+      f.input :name
+      f.input :when, :as => :datetime_picker
+      f.input :stage
+      f.input :logo_url
+    end
+    f.actions
+  end
 
 end

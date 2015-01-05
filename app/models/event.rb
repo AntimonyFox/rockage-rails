@@ -1,3 +1,6 @@
 class Event < ActiveRecord::Base
-  validates :name, :when, :stage, presence: true
+  belongs_to :stage
+  validates :name, presence: true
+  validates :when, presence: true
+  validates :stage, presence: true
 end
