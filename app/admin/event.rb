@@ -10,6 +10,10 @@ ActiveAdmin.register Event do
     actions
   end
 
+  after_update do |e|
+    Update.touch(:schedule)
+  end
+
   filter :name
   filter :stage
   filter :when

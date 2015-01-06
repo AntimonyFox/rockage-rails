@@ -19,6 +19,10 @@ ActiveAdmin.register Stage do
     end
   end
 
+  after_update do |e|
+    Update.touch(:schedule)
+  end
+
   filter :name
 
   # form do |f|

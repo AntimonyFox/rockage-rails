@@ -3,6 +3,11 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
 
   namespace :api, defaults: { format: :json } do
+    get 'check' => 'updates#index'
+    get 'check/:name' => 'updates#show'
+
+    get 'schedule' => 'stages#index'
+
     resources :stages
     resources :events
   end
