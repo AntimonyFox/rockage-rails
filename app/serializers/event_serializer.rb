@@ -1,5 +1,5 @@
 class EventSerializer < ActiveModel::Serializer
-  attributes :name, :when, :logo_url
+  attributes :name, :when, :duration, :logo_url
 
   # belongs_to :stage
 
