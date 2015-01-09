@@ -2,20 +2,23 @@ Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 
+  devise_for :users
+  get 'users' => 'users#index'
+
   namespace :api, defaults: { format: :json } do
     get 'check' => 'updates#index'
     get 'check/:name' => 'updates#show'
 
     get 'schedule' => 'stages#index'
 
-    resources :stages
-    resources :events
+    resources :stages, only: [:index,:show]
+    resources :events, only: [:index,:show]
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  root 'application#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
