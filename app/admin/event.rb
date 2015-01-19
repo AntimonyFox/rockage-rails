@@ -1,6 +1,6 @@
 ActiveAdmin.register Event do
   permit_params :name, :when, :duration, :stage_id, :logo_url
-  menu priority: 4
+  menu priority: 5
 
   index do
     selectable_column

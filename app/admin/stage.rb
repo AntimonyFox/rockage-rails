@@ -1,6 +1,6 @@
 ActiveAdmin.register Stage do
   permit_params :name
-  menu priority: 3
+  menu priority: 4
 
   index do
     selectable_column

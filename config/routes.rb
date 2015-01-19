@@ -2,8 +2,11 @@ Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 
-  devise_for :users
-  get 'users' => 'users#index'
+  devise_for :users, path: '/'
+  get '/' => 'users#index'
+  get 'tournaments/:slug' => 'tournaments#show', as: 'tournament'
+  post 'tournaments/:slug/join' => 'tournaments#create', as: 'join_tournament'
+  delete 'tournaments/:slug/leave' => 'tournaments#destroy', as: 'leave_tournament'
 
   namespace :api, defaults: { format: :json } do
     get 'check' => 'updates#index'

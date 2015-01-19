@@ -1,8 +1,28 @@
+<div class="container-fluid">
+
+</div>
+
+Rockage image <br />
 <% if user_signed_in? %>
     <li>
       <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+      <%= image_tag current_user.gravatar_url %>
+      <%= current_user.email %>
     </li>
+    My tournaments <br />
+    <% current_user.tournaments.each do |t| %>
+        <%= link_to(t.name, tournament_path(t.slug)) %>
+    <% end %>
+    <br /><br />
+    Available tournaments <br />
+    <% (Tournament.all - current_user.tournaments).each do |t| %>
+        <%= link_to(t.name, tournament_path(t.slug)) %>
+    <% end %>
 <% else %>
+    Rockage description <br />
+    <li>
+      <%= link_to('Register', new_user_registration_path)  %>
+    </li>
     <li>
       <%= link_to('Login', new_user_session_path)  %>
     </li>
