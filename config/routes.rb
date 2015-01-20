@@ -17,6 +17,12 @@ Rails.application.routes.draw do
     resources :stages, only: [:index,:show]
     resources :events, only: [:index,:show]
   end
+
+  namespace :admin do
+    get 'tournaments' => 'tournaments#index', as: 'tournaments'
+    get 'tournaments/:slug' => 'tournaments#show', as: 'show_tournament'
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

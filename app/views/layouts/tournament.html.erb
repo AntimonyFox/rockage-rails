@@ -19,6 +19,8 @@ Spaces left: <br />
 <% if user_signed_in? %>
     <% if flash[:added] %>
         Welcome to the <%= @tournament.name %> tournament!<br />
+    <% elsif flash[:removed] %>
+        You've left the <%= @tournament.name %> tournament.<br />
     <% end %>
 
     <% if current_user.has_tournament?(@tournament) %>
@@ -29,5 +31,5 @@ Spaces left: <br />
         <%= link_to('Join', join_tournament_path, :method => :create) %>
     <% end %>
 <% else %>
-
+    <%= link_to('Login to join', new_user_session_path) %>
 <% end %>

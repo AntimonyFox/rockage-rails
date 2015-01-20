@@ -1,0 +1,19 @@
+<div class="container-fluid">
+
+</div>
+
+<%= link_to('Rockage image', admin_tournaments_path) %>
+<% if admin_user_signed_in? %>
+    <li>
+      <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+      <%= current_admin_user.email %>
+    </li>
+<% end %>
+
+Tournament image <br />
+<%= @tournament.name %> <br />
+<%= @tournament.when %> <br />
+Spaces left: <br />
+<% @tournament.users.each do |u| %>
+    <%= u.email %>
+<% end %>
