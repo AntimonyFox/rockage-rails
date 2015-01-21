@@ -21,6 +21,8 @@ Rails.application.routes.draw do
   namespace :admin do
     get 'tournaments' => 'tournaments#index', as: 'tournaments'
     get 'tournaments/:slug' => 'tournaments#show', as: 'show_tournament'
+    put 'tournaments/:slug/start' => 'tournaments#start', as: 'start_tournament'
+    put 'tournaments/:slug/cancel' => 'tournaments#cancel', as: 'cancel_tournament'
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

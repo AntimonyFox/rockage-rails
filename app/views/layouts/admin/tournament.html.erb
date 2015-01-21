@@ -15,6 +15,15 @@ Tournament image <br />
 <%= @tournament.when %> <br />
 Tournament size: <%= @tournament.max_num_entries %><br />
 Spaces left: <%= @tournament.max_num_entries - @tournament.users.size %><br />
+<br />
+Entrants: <br />
 <% @tournament.users.each do |u| %>
-    <%= u.username %> (<%= u.email %>)
+    <%= u.username %> (<%= u.email %>)<br />
+<% end %>
+<br />
+<% if @tournament.running? %>
+    This tournament is running. <br />
+    <%= link_to('Cancel tournament', admin_cancel_tournament_path(@tournament.slug), :method => :put) %>
+<% else %>
+    <%= link_to('Start tournament', admin_start_tournament_path(@tournament.slug), :method => :put) %>
 <% end %>

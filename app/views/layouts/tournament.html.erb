@@ -26,10 +26,20 @@ Spaces left: <%= @tournament.max_num_entries - @tournament.users.size %><br />
 
     <% if current_user.has_tournament?(@tournament) %>
         <!--if tournament has begun, Drop out => Forfeit, if waitlist, => Leave waitlist -->
-        <%= link_to('Drop out', leave_tournament_path, :method => :delete) %>
+        <% if @tournament.running? %>
+            <%= link_to('Forfeit', leave_tournament_path, :method => :delete) %>
+        <% else %>
+            <%= link_to('Drop out', leave_tournament_path, :method => :delete) %>
+        <% end %>
+    <% elsif current_user.is_waitlisted_for?(@tournament) %>
+        <%= link_to('Leave waitlist', leave_tournament_path, :method => :delete) %>
     <% else %>
+        <% if @tournament.running? %>
+            <%= link_to('Join waitlist', join_tournament_path, :method => :create) %>
+        <% else %>
+            <%= link_to('Join', join_tournament_path, :method => :create) %>
+        <% end %>
         <!--if no spaces left, Join => Join waitlist -->
-        <%= link_to('Join', join_tournament_path, :method => :create) %>
     <% end %>
 <% else %>
     <%= link_to('Login to join', new_user_session_path) %>

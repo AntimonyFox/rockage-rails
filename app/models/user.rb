@@ -16,5 +16,9 @@ class User < ActiveRecord::Base
     return self.tournaments.include? t
   end
 
+  def is_waitlisted_for?(t)
+    return self.waitlisted_tournaments.include? t
+  end
+
   validates_uniqueness_of :username
 end
