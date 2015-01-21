@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150119031311) do
+ActiveRecord::Schema.define(version: 20150120065323) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -78,11 +78,13 @@ ActiveRecord::Schema.define(version: 20150119031311) do
   end
 
   create_table "tournaments", force: true do |t|
-    t.string   "name",       null: false
+    t.string   "name",            null: false
     t.datetime "when"
-    t.string   "slug",       null: false
+    t.string   "slug",            null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "max_num_entries"
+    t.string   "status"
   end
 
   create_table "updates", force: true do |t|
@@ -104,9 +106,21 @@ ActiveRecord::Schema.define(version: 20150119031311) do
     t.inet     "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "username"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
+
+  create_table "waitlist_entries", force: true do |t|
+    t.integer  "tournament_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "waitlist_entries", ["tournament_id"], name: "index_waitlist_entries_on_tournament_id", using: :btree
+  add_index "waitlist_entries", ["user_id"], name: "index_waitlist_entries_on_user_id", using: :btree
 
 end

@@ -13,7 +13,8 @@
 Tournament image <br />
 <%= @tournament.name %> <br />
 <%= @tournament.when %> <br />
-Spaces left: <br />
+Tournament size: <%= @tournament.max_num_entries %><br />
+Spaces left: <%= @tournament.max_num_entries - @tournament.users.size %><br />
 <% @tournament.users.each do |u| %>
-    <%= u.email %>
+    <%= u.username %> (<%= u.email %>)
 <% end %>
