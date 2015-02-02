@@ -21,4 +21,7 @@ class User < ActiveRecord::Base
   end
 
   validates_uniqueness_of :username
+
+  has_many :standings
+  has_many :brackets, :through => :standings
 end
