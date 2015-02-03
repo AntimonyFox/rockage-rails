@@ -69,6 +69,8 @@ class Admin::TournamentsController < ApplicationController
         round_number += 1
       end
 
+      @tournament.bracket = matches[0]
+
       @tournament.status = "running"
       @tournament.save!
       redirect_to request.referrer

@@ -14,6 +14,8 @@ Rails.application.routes.draw do
 
     get 'schedule' => 'stages#index'
 
+    get 'tournaments/:slug' => 'tournaments#show'
+
     resources :stages, only: [:index,:show]
     resources :events, only: [:index,:show]
   end
