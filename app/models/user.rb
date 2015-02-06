@@ -20,6 +20,7 @@ class User < ActiveRecord::Base
     return self.waitlisted_tournaments.include? t
   end
 
+  validates_presence_of :username
   validates_uniqueness_of :username
 
   has_many :standings
