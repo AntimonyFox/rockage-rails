@@ -43,7 +43,15 @@
             <% end %>
         <% end %>
     <% else %>
-        <% if Setting.get("mode") == "brackets" %>
+        <% if Setting.get("mode") == "nextup" %>
+            <%= link_to("They're here! Start!", admin_tournament_start_match_path, :method => :patch) %><br />
+
+            <br />
+
+            <% @users.each do |u| %>
+                <%= u.username %><br />
+            <% end %>
+        <% else %>
             <%= link_to('Call combatants!', admin_tournament_call_match_path, :method => :post) %><br />
 
             <br />
@@ -52,14 +60,6 @@
                 <% s = link_to(u.username + ' won this match.', { :action => :match_result, :slug => @tournament.slug, :round => @match.round_number, :match => @match.match_number, :user_id => u.id}, :method => :put) %>
                 <% s = highlight(s, u.username + ' won this match.', :highlighter => '<strong>\1</strong>') if u == @match.user %>
                 <%= s %><br />
-            <% end %>
-        <% elsif Setting.get("mode") == "nextup" %>
-            <%= link_to("They're here! Start!", admin_tournament_start_match_path, :method => :patch) %><br />
-
-            <br />
-
-            <% @users.each do |u| %>
-                <%= u.username %><br />
             <% end %>
         <% end %>
     <% end %>

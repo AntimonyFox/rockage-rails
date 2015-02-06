@@ -13,6 +13,8 @@
 
 <br />
 
+<%= link_to('Show quadrants', admin_tournaments_show_quadrants_path, :method => :post) %><br />
+
 Tournaments: <br />
 <% @tournaments.each do |t| %>
     <%= link_to(t.name, admin_show_tournament_path(t.slug)) %><br />

@@ -30,6 +30,7 @@ Rails.application.routes.draw do
     put 'tournaments/:slug/:round/:match' => 'tournaments#match_result', as: 'tournament_match_result'
     post 'tournaments/:slug/:round/:match' => 'tournaments#call_match', as: 'tournament_call_match'
     patch 'tournaments/:slug/:round/:match' => 'tournaments#start_match', as: 'tournament_start_match'
+    post 'tournaments' => 'tournaments#show_quadrants', as: 'tournaments_show_quadrants'
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

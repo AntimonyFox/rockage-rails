@@ -8,7 +8,13 @@ class Api::TournamentsController < ApplicationController
       t = Tournament.find_by_slug(Setting.get(:disp_tourn))
       e = Bracket.where(round_number: t.current_round)
     else
-      e = Tournament.all
+      # e = Tournament.all
+      e = []
+
+      e << Tournament.find_by_slug(Setting.get("quad1")) if Setting.get("quad1")
+      e << Tournament.find_by_slug(Setting.get("quad2")) if Setting.get("quad2")
+      e << Tournament.find_by_slug(Setting.get("quad3")) if Setting.get("quad3")
+      e << Tournament.find_by_slug(Setting.get("quad4")) if Setting.get("quad4")
     end
 
     render json: e, root: mode

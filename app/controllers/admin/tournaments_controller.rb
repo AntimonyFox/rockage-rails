@@ -11,6 +11,18 @@ class Admin::TournamentsController < ApplicationController
     end
   end
 
+  def show_quadrants
+    if !admin_user_signed_in?
+      session[:return_to] ||= request.referrer
+      redirect_to new_admin_user_session_path
+    else
+      Setting.set("mode", "quadrants")
+      Update.touch("tournaments")
+
+      redirect_to admin_tournaments_path
+    end
+  end
+
   def show
     if !admin_user_signed_in?
       session[:return_to] ||= request.referrer
