@@ -43,11 +43,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="user.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="user.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models/user.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.57591623" vertical-offset="0" max-vertical-offset="573">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="510">
               <caret line="22" column="23" selection-start-line="22" selection-start-column="23" selection-end-line="22" selection-end-column="23" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="user.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/admin/user.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="540">
+              <caret line="1" column="68" selection-start-line="1" selection-start-column="68" selection-end-line="1" selection-end-column="68" />
               <folding />
             </state>
           </provider>
@@ -68,6 +78,16 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0" vertical-offset="2897" max-vertical-offset="3975">
               <caret line="207" column="28" selection-start-line="207" selection-start-column="28" selection-end-line="207" selection-end-column="28" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="tournaments_controller.rb" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/controllers/admin/tournaments_controller.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.44328097" vertical-offset="1156" max-vertical-offset="2460">
+              <caret line="94" column="26" selection-start-line="94" selection-start-column="26" selection-end-line="94" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -109,7 +129,6 @@
       <list>
         <option value="$PROJECT_DIR$/app/admin/physician.rb" />
         <option value="$PROJECT_DIR$/app/models/patient.rb" />
-        <option value="$PROJECT_DIR$/app/admin/user.rb" />
         <option value="$PROJECT_DIR$/app/admin/entry.rb" />
         <option value="$PROJECT_DIR$/templates/project/_bootstrap-variables.sass" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/application.css.scss" />
@@ -146,7 +165,6 @@
         <option value="$PROJECT_DIR$/app/serializers/bracket_serializer.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20150205073656_add_num_descendants_to_brackets.rb" />
         <option value="$PROJECT_DIR$/app/serializers/user_serializer.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/admin/tournaments_controller.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20150206020032_create_settings.rb" />
         <option value="$PROJECT_DIR$/app/admin/settings.rb" />
         <option value="$PROJECT_DIR$/app/models/setting.rb" />
@@ -158,6 +176,8 @@
         <option value="$PROJECT_DIR$/app/views/users/registrations/new.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/application_controller.rb" />
         <option value="$PROJECT_DIR$/app/models/user.rb" />
+        <option value="$PROJECT_DIR$/app/admin/user.rb" />
+        <option value="$PROJECT_DIR$/app/controllers/admin/tournaments_controller.rb" />
       </list>
     </option>
   </component>
@@ -464,6 +484,46 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Rockage" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Rockage" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Rockage" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Rockage" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -681,10 +741,10 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1680" height="940" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32998884" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32998884" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32998884" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -743,13 +803,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/controllers/users_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.07853403" vertical-offset="0" max-vertical-offset="573">
-          <caret line="3" column="39" selection-start-line="3" selection-start-column="39" selection-end-line="3" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/waitlist_entry.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.02617801" vertical-offset="0" max-vertical-offset="573">
@@ -1001,14 +1054,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/admin/tournaments_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.44328097" vertical-offset="1411" max-vertical-offset="2295">
-          <caret line="111" column="22" selection-start-line="111" selection-start-column="22" selection-end-line="111" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/serializers/user_serializer.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.02617801" vertical-offset="0" max-vertical-offset="573">
@@ -1084,14 +1129,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/api/tournaments_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="420">
-          <caret line="13" column="26" selection-start-line="13" selection-start-column="26" selection-end-line="13" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/.rvm/gems/ruby-2.0.0-p481@railstutorial_rails_4_0/gems/devise-3.4.1/app/views/devise/sessions/new.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.19526628" vertical-offset="0" max-vertical-offset="845">
@@ -1134,8 +1171,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/user.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.57591623" vertical-offset="0" max-vertical-offset="573">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="510">
           <caret line="22" column="23" selection-start-line="22" selection-start-column="23" selection-end-line="22" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/admin/user.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="540">
+          <caret line="1" column="68" selection-start-line="1" selection-start-column="68" selection-end-line="1" selection-end-column="68" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/api/tournaments_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="420">
+          <caret line="13" column="26" selection-start-line="13" selection-start-column="26" selection-end-line="13" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/admin/tournaments_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.44328097" vertical-offset="1156" max-vertical-offset="2460">
+          <caret line="94" column="26" selection-start-line="94" selection-start-column="26" selection-end-line="94" selection-end-column="26" />
           <folding />
         </state>
       </provider>

@@ -87,8 +87,16 @@ class Admin::TournamentsController < ApplicationController
         matches<<b
       end
 
+      goingUp = false
+      bye = false
       matches2 = []
       while (matches.size > 1)
+        if goingUp
+          if matches.count % 2 == 1
+            bye = true
+          end
+        end
+
         while (!matches.empty?)
           b2 = Bracket.new
           b2.tournament = @tournament
@@ -100,12 +108,13 @@ class Admin::TournamentsController < ApplicationController
           b2.brackets<<match1
           num_descendants = match1.num_descendants
 
-          if (matches.size > 0)
+          if (matches.size > 0 and !bye)
             match2 = matches[0]
             matches.delete(match2)
             b2.brackets<<match2
             num_descendants += match2.num_descendants
           end
+          bye = false
 
           b2.num_descendants = num_descendants
           b2.save!
@@ -115,6 +124,8 @@ class Admin::TournamentsController < ApplicationController
         matches.clear
         matches = matches2.clone
         matches2.clear
+
+        goingUp ^= true
 
         round_number += 1
       end
