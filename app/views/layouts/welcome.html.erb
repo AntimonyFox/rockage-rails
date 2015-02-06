@@ -10,13 +10,15 @@ Rockage image <br />
       <%= current_user.email %>
     </li>
     My tournaments <br />
+    <% @tournaments = Tournament.all %>
+    <% @tournaments = @tournaments.sort_by { |t| t.name.downcase } %>
     <% current_user.tournaments.each do |t| %>
-        <%= link_to(t.name, tournament_path(t.slug)) %>
+        <%= link_to(t.name, tournament_path(t.slug)) %><br />
     <% end %>
     <br /><br />
     Available tournaments <br />
-    <% (Tournament.all - current_user.tournaments).each do |t| %>
-        <%= link_to(t.name, tournament_path(t.slug)) %>
+    <% (@tournaments - current_user.tournaments).each do |t| %>
+        <%= link_to(t.name, tournament_path(t.slug)) %><br />
     <% end %>
 <% else %>
     Rockage description <br />
