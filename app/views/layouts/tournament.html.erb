@@ -2,18 +2,19 @@
 
 </div>
 
-<%= link_to('Rockage image', root_path) %>
+<%= link_to('Rockage', root_path) %><br />
+
+<br />
+
 <% if user_signed_in? %>
-    <li>
-      <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
-      <%= image_tag current_user.gravatar_url %>
-      <%= current_user.email %>
-    </li>
+    <%= image_tag current_user.gravatar_url %><br />
+    <%= current_user.email %><br />
+    <%= link_to('Logout', destroy_user_session_path, :method => :delete) %><br />
+
+    <br />
 <% end %>
 
-Tournament image <br />
 <%= @tournament.name %> <br />
-<%= @tournament.when %> <br />
 Tournament size: <%= @tournament.max_num_entries %><br />
 Spaces left: <%= @tournament.max_num_entries - @tournament.users.size %><br />
 

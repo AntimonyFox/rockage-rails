@@ -2,13 +2,17 @@
 
 </div>
 
-Rockage image <br />
+<%= link_to('Rockage', root_path) %><br />
+
+<br />
+
 <% if user_signed_in? %>
-    <li>
-      <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
-      <%= image_tag current_user.gravatar_url %>
-      <%= current_user.email %>
-    </li>
+      <%= image_tag current_user.gravatar_url %><br />
+      <%= current_user.email %><br />
+      <%= link_to('Logout', destroy_user_session_path, :method => :delete) %><br />
+
+    <br />
+
     My tournaments <br />
     <% @tournaments = Tournament.all %>
     <% @tournaments = @tournaments.sort_by { |t| t.name.downcase } %>

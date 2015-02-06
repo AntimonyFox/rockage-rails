@@ -33,6 +33,36 @@ class Admin::TournamentsController < ApplicationController
     end
   end
 
+  def call_match
+    if !admin_user_signed_in?
+      session[:return_to] ||= request.referrer
+      redirect_to new_admin_user_session_path
+    else
+      @tournament = Tournament.find_by_slug(params[:slug])
+
+      Setting.set("mode", "nextup")
+      Setting.set("disp_tourn", params[:slug])
+      Update.touch("tournaments")
+
+      redirect_to admin_tournament_match_path(@tournament.slug, @tournament.current_round, @tournament.current_match)
+    end
+  end
+
+  def start_match
+    if !admin_user_signed_in?
+      session[:return_to] ||= request.referrer
+      redirect_to new_admin_user_session_path
+    else
+      @tournament = Tournament.find_by_slug(params[:slug])
+
+      Setting.set("mode", "brackets")
+      Setting.set("disp_tourn", params[:slug])
+      Update.touch("tournaments")
+
+      redirect_to admin_tournament_match_path(@tournament.slug, @tournament.current_round, @tournament.current_match)
+    end
+  end
+
   def match_result
     if !admin_user_signed_in?
       session[:return_to] ||= request.referrer
@@ -71,6 +101,8 @@ class Admin::TournamentsController < ApplicationController
       session[:return_to] ||= request.referrer
       redirect_to new_admin_user_session_path
     else
+      Setting.set("mode", "brackets")
+      Setting.set("disp_tourn", params[:slug])
       Update.touch("tournaments")
       @tournament = Tournament.find_by_slug(params[:slug])
 
