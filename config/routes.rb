@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
     get 'schedule' => 'stages#index'
 
+    get 'tournaments/' => 'tournaments#index'
     get 'tournaments/:slug' => 'tournaments#show'
 
     resources :stages, only: [:index,:show]
@@ -25,6 +26,8 @@ Rails.application.routes.draw do
     get 'tournaments/:slug' => 'tournaments#show', as: 'show_tournament'
     put 'tournaments/:slug/start' => 'tournaments#start', as: 'start_tournament'
     put 'tournaments/:slug/cancel' => 'tournaments#cancel', as: 'cancel_tournament'
+    get 'tournaments/:slug/:round/:match' => 'tournaments#match', as: 'tournament_match'
+    put 'tournaments/:slug/:round/:match' => 'tournaments#match_result', as: 'tournament_match_result'
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -13,17 +13,29 @@
 Tournament image <br />
 <%= @tournament.name %> <br />
 <%= @tournament.when %> <br />
-Tournament size: <%= @tournament.max_num_entries %><br />
-Spaces left: <%= @tournament.max_num_entries - @tournament.users.size %><br />
 <br />
-Entrants: <br />
-<% @tournament.users.each do |u| %>
-    <%= u.username %> (<%= u.email %>)<br />
-<% end %>
-<br />
+
 <% if @tournament.running? %>
     This tournament is running. <br />
     <%= link_to('Cancel tournament', admin_cancel_tournament_path(@tournament.slug), :method => :put) %>
+    <br />
+    This tournament is currently on round <%= @tournament.current_round %>, match <%= @tournament.current_match %>.<br />
+    <%= link_to('Continue.', admin_tournament_match_path(@tournament.slug, @tournament.current_round, @tournament.current_match)) %>
+<% elsif @tournament.complete? %>
+    This tournament is complete!<br />
+    <%= link_to('Destroy tournament', admin_cancel_tournament_path(@tournament.slug), :method => :put) %><br />
+    <%= @tournament.bracket.user.username %> is the winner!<br />
+    <%= link_to('Modify brackets.', admin_tournament_match_path(@tournament.slug, @tournament.current_round, @tournament.current_match)) %><br />
 <% else %>
     <%= link_to('Start tournament', admin_start_tournament_path(@tournament.slug), :method => :put) %>
+<% end %>
+<br/><br />
+
+Tournament size: <%= @tournament.max_num_entries %><br />
+Spaces left: <%= @tournament.max_num_entries - @tournament.users.size %><br />
+<br />
+
+Entrants: <br />
+<% @tournament.users.each do |u| %>
+    <%= u.username %> (<%= u.email %>)<br />
 <% end %>

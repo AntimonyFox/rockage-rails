@@ -1,0 +1,50 @@
+<div class="container-fluid">
+
+</div>
+
+<%= link_to('Rockage image', admin_tournaments_path) %>
+<% if admin_user_signed_in? %>
+    <li>
+      <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+      <%= current_admin_user.email %>
+    </li>
+<% end %>
+
+Tournament image <br />
+<%= link_to(@tournament.name, admin_show_tournament_path(@tournament.slug)) %><br />
+<br />
+
+<% if @match.nil? || @match.round_number == 0 %>
+    This is an invalid match. Stop messing with the url!
+<% else %>
+    <% prev_round = @match.prev_round %>
+    <% next_round = @match.next_round %>
+    <%= link_to('<<', admin_tournament_match_path(@tournament.slug, prev_round.round_number, prev_round.match_number)) if prev_round %><%= "<<" if !prev_round %>
+    Round <%= @match.round_number %>
+    <%= link_to('>>', admin_tournament_match_path(@tournament.slug, next_round.round_number, next_round.match_number)) if next_round %><%= ">>" if !next_round %>
+    <br />
+
+    <% prev_match = @match.prev_match %>
+    <% next_match = @match.next_match %>
+    <%= link_to('<<', admin_tournament_match_path(@tournament.slug, prev_match.round_number, prev_match.match_number)) if prev_match %><%= "<<" if !prev_match%>
+    Match <%= @match.match_number %>
+    <%= link_to('>>', admin_tournament_match_path(@tournament.slug, next_match.round_number, next_match.match_number)) if next_match %><%= ">>" if !next_match %>
+    <br />
+
+    <br />
+
+    <% if @match.users.count != @match.brackets.count %>
+        You're not ready to run this match. You still need the results from:<br />
+        <% @match.brackets.each do |b| %>
+            <% if b.user.nil? %>
+                <%= link_to('Round ' + b.round_number.to_s + ', match ' + b.match_number.to_s, admin_tournament_match_path(@tournament.slug, b.round_number, b.match_number)) %><br />
+            <% end %>
+        <% end %>
+    <% else %>
+        <% @users.each do |u| %>
+            <% s = link_to(u.username + ' won this match.', { :action => :match_result, :slug => @tournament.slug, :round => @match.round_number, :match => @match.match_number, :user_id => u.id}, :method => :put) %>
+            <% s = highlight(s, u.username + ' won this match.', :highlighter => '<strong>\1</strong>') if u == @match.user %>
+            <%= s %><br />
+        <% end %>
+    <% end %>
+<% end %>

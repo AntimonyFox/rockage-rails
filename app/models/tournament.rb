@@ -12,4 +12,8 @@ class Tournament < ActiveRecord::Base
   def running?
     return status == "running"
   end
+
+  def complete?
+    return status == "complete"
+  end
 end

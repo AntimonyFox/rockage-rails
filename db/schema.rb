@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150202083112) do
+ActiveRecord::Schema.define(version: 20150206020032) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(version: 20150202083112) do
     t.integer  "match_number"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "num_descendants"
   end
 
   create_table "entries", force: true do |t|
@@ -87,6 +88,13 @@ ActiveRecord::Schema.define(version: 20150202083112) do
     t.datetime "updated_at"
   end
 
+  create_table "settings", force: true do |t|
+    t.string   "key"
+    t.string   "value"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "stages", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
@@ -101,13 +109,15 @@ ActiveRecord::Schema.define(version: 20150202083112) do
   end
 
   create_table "tournaments", force: true do |t|
-    t.string   "name",            null: false
+    t.string   "name",                        null: false
     t.datetime "when"
-    t.string   "slug",            null: false
+    t.string   "slug",                        null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "max_num_entries"
     t.string   "status"
+    t.integer  "current_round",   default: 0
+    t.integer  "current_match",   default: 0
   end
 
   create_table "updates", force: true do |t|

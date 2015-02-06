@@ -1,8 +1,18 @@
 class Api::TournamentsController < ApplicationController
 
   def index
-    e = Tournament.all
-    render json: e, root: false
+    mode = Setting.get(:mode)
+    if mode == "brackets"
+      e = Tournament.find_by_slug(Setting.get(:disp_tourn))
+    elsif mode == "nextup"
+      t = Tournament.find_by_slug(Setting.get(:disp_tourn))
+      e = Bracket.where(round_number: t.current_round)
+    else
+      e = Tournament.all
+    end
+
+    render json: e, root: mode
+
   end
 
   def show
