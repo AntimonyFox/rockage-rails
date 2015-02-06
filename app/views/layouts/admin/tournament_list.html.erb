@@ -12,5 +12,5 @@
 
 Tournaments: <br />
 <% @tournaments.each do |t| %>
-    <%= link_to(t.name, admin_show_tournament_path(t.slug)) %>
+    <%= link_to(t.name, admin_show_tournament_path(t.slug)) %><br />
 <% end %>

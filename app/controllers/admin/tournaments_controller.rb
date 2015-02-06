@@ -6,6 +6,7 @@ class Admin::TournamentsController < ApplicationController
       redirect_to new_admin_user_session_path
     else
       @tournaments = Tournament.all
+      @tournaments = @tournaments.sort_by { |t| t.name.downcase }
       render "layouts/admin/tournament_list.html.erb"
     end
   end
