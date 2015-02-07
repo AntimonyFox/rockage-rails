@@ -23,7 +23,6 @@ Tournaments: <br />
     <tr>
         <td><%= link_to(t.name, admin_show_tournament_path(t.slug)) %></td>
         <td><%= t.users.count.to_s + "/" + t.max_num_entries.to_s + " joined" %></td>
-        <br />
     </tr>
 <% end %>
 </table>

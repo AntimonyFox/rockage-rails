@@ -22,7 +22,6 @@
           <tr>
             <td><%= link_to(t.name, leave_tournament_path(t.slug), :method => :delete) %></td>
             <td><%= t.users.count.to_s + "/" + t.max_num_entries.to_s + " joined" %></td>
-            <br />
           </tr>
       <% end %>
     </table>
@@ -34,7 +33,6 @@
           <tr>
             <td><%= link_to(t.name, join_tournament_path(t.slug), :method => :post) %></td>
             <td><%= t.users.count.to_s + "/" + t.max_num_entries.to_s + " joined" %></td>
-            <br />
           </tr>
       <% end %>
     </table>
