@@ -13,16 +13,20 @@
 
     <br />
 
-    My tournaments <br />
+    My tournaments (click on a Tournament to drop it) <br />
     <% @tournaments = Tournament.all %>
     <% @tournaments = @tournaments.sort_by { |t| t.name.downcase } %>
     <% current_user.tournaments.each do |t| %>
-        <%= link_to(t.name, tournament_path(t.slug)) %><br />
+        <%= link_to(t.name, leave_tournament_path(t.slug), :method => :delete) %>
+        <%= t.users.count.to_s + "/" + t.max_num_entries.to_s + " joined" %>
+        <br />
     <% end %>
     <br /><br />
-    Available tournaments <br />
+    Available tournaments (click on a Tournament to join it)<br />
     <% (@tournaments - current_user.tournaments).each do |t| %>
-        <%= link_to(t.name, tournament_path(t.slug)) %><br />
+        <%= link_to(t.name, join_tournament_path(t.slug), :method => :post) %>
+        <%= t.users.count.to_s + "/" + t.max_num_entries.to_s + " joined" %>
+        <br />
     <% end %>
 <% else %>
     Rockage description <br />
