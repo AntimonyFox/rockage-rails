@@ -39,6 +39,9 @@ class Admin::TournamentsController < ApplicationController
       redirect_to new_admin_user_session_path
     else
       @tournament = Tournament.find_by_slug(params[:slug])
+      @tournament.current_match = params[:match]
+      @tournament.current_round = params[:round]
+      @tournament.save!
       @match = @tournament.brackets.where(:round_number => params[:round], :match_number => params[:match]).take
       @users = @match.users.sort_by { |obj| (@match.brackets & obj.brackets)[0].id }
       render "layouts/admin/tournament_match.html.erb"
