@@ -19,5 +19,6 @@
 
 Tournaments: <br />
 <% @tournaments.each do |t| %>
-    <%= link_to(t.name, admin_show_tournament_path(t.slug)) %><br />
+    <%= link_to(t.name, admin_show_tournament_path(t.slug)) %>
+    <%= t.users.count.to_s + "/" + t.max_num_entries.to_s + " joined" %><br />
 <% end %>
