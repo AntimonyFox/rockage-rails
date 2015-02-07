@@ -12,6 +12,8 @@ class User < ActiveRecord::Base
   has_many :waitlist_entries
   has_many :waitlisted_tournaments, :through => :waitlist_entries, :source => :tournament
 
+  has_one :partner, :class_name => "User"
+
   def has_tournament?(t)
     return self.tournaments.include? t
   end
