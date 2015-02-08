@@ -53,8 +53,8 @@ class Admin::TournamentsController < ApplicationController
       session[:return_to] ||= request.referrer
       redirect_to new_admin_user_session_path
     else
-      # @tournament = Tournament.find_by_slug(params[:slug])
-      @tournament = Tournament.find_by_slug(Setting.get("disp_tourn"))
+      @tournament = Tournament.find_by_slug(params[:slug])
+      # @tournament = Tournament.find_by_slug(Setting.get("disp_tourn"))
 
       Setting.set("mode", "nextup")
       Setting.set("disp_tourn", params[:slug])
