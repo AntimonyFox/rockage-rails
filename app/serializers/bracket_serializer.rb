@@ -5,11 +5,12 @@ class BracketSerializer < ActiveModel::Serializer
   has_many :brackets
 
   def user
-    t = Tournament.find(tournament_id)
+    t = object.tournament
     if t.slug == "dash"
-      return user.username + " & " + partner.username
+      newUser = User.create(username: object.user.username + object.user.partner.username)
+      return newUser
     else
-      return user.username
+      return object.user
     end
   end
 
