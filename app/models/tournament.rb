@@ -16,4 +16,9 @@ class Tournament < ActiveRecord::Base
   def complete?
     return status == "complete"
   end
+
+  def self.all_valid
+    return Tournament.all - Tournament.where(:status => "complete") - Tournament.where(:status => "disabled")
+
+  end
 end

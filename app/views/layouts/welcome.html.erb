@@ -14,7 +14,7 @@
     <br />
 
     My tournaments (click on a Tournament to drop it) <br />
-    <% @tournaments = Tournament.all %>
+    <% @tournaments = Tournament.all_valid %>
     <% @tournaments = @tournaments.sort_by { |t| t.name.downcase } %>
 
     <table style="width:750px;">
