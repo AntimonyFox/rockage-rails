@@ -19,6 +19,8 @@
 
 Tournaments: <br />
 <table style="width:750px;">
+<% @tournaments = @tournaments.sort_by { |t| t.users.count } %>
+<% @tournaments.reverse! %>
 <% @tournaments.each do |t| %>
     <tr>
         <td><%= link_to(t.name, admin_show_tournament_path(t.slug)) %></td>
