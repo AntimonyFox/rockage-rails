@@ -6,7 +6,7 @@ class Api::TournamentsController < ApplicationController
       e = Tournament.find_by_slug(Setting.get(:disp_tourn))
     elsif mode == "nextup"
       t = Tournament.find_by_slug(Setting.get(:disp_tourn))
-      e = Bracket.where(round_number: t.current_round, match_number: t.current_match)
+      e = t.brackets.where(round_number: t.current_round, match_number: t.current_match)
     else
       # e = Tournament.all
       e = []

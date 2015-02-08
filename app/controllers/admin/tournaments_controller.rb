@@ -241,6 +241,7 @@ class Admin::TournamentsController < ApplicationController
       session[:return_to] ||= request.referrer
       redirect_to new_admin_user_session_path
     else
+      Setting.set("mode", "quadrants")
       Update.touch("tournaments")
       @tournament = Tournament.find_by_slug(params[:slug])
 
