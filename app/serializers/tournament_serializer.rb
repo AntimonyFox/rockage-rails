@@ -1,5 +1,5 @@
 class TournamentSerializer < ActiveModel::Serializer
-  attributes :name, :slug, :max_num_entries, :spaces_available, :num_sign_ups
+  attributes :name, :slug, :max_num_entries, :spaces_available, :num_sign_ups, :when
 
   has_one :bracket
 
