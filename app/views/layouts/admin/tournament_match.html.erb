@@ -52,7 +52,7 @@
                 <%= u.username %><br />
             <% end %>
         <% else %>
-            <%= link_to('Call combatants!', admin_tournament_call_match_path, :method => :post) %><br />
+            <%= link_to('Call combatants!', admin_tournament_call_match_path(@tournament.slug, @tournament.current_round, @tournament.current_round), :method => :post) %><br />
 
             <br />
 

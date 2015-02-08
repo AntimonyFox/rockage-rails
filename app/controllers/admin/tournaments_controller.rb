@@ -124,6 +124,53 @@ class Admin::TournamentsController < ApplicationController
       round_number = 0
       matches = []
       entries = @tournament.users.shuffle
+
+      if params[:slug] == "dash"
+        leaders = []
+        entries.each do |e|
+          if e.partner
+            leaders << e
+            entries.delete(e)
+            entries.delete(e.partner)
+          end
+        end
+
+        shouldP1 = true
+        p1 = []
+        p2 = []
+        entries.each do |e|
+          if shouldP1
+            p1 << e
+          else
+            p2 << e
+          end
+          shouldP1 ^= true
+        end
+
+        save = nil
+        if p1.count > p2.count
+          save = p1[0]
+          p1.delete(save)
+        end
+
+        p1.each do |p|
+          q = p2[0]
+          p2.delete(q)
+          p.partner = q
+          q.partner = p
+
+          leaders << p
+        end
+
+        if save.nil?
+          leaders << save
+        end
+
+        entries.clear
+        entries = leaders
+
+      end
+
       entries.each do |e|
         b = Bracket.new
         b.tournament = @tournament
