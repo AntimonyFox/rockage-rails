@@ -26,8 +26,10 @@
 Tournaments: <br />
 <table style="width:750px;">
 <% rest.each do |t| %>
+  <% numRestToday = Entry.where(:tournament => t) %>
     <tr>
         <td><%= link_to(t.name, admin_show_tournament_path(t.slug)) %></td>
+        <td><%= t.users.count.to_s + "/" + t.max_num_entries.to_s + " joined" %></td>
         <td><%= t.users.count.to_s + "/" + t.max_num_entries.to_s + " joined" %></td>
     </tr>
 <% end %>
